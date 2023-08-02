@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YO-G</title>
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body onload="getLocation()">
+  <div class="container">
+    <h1 class="h1-content">Layanan bantuan dari Kantor Polisi Terdekat</h1>
+    <iframe id="map" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <h2 class="h2-content">Kantor Polisi Terdekat:</h2>
+    <ul>
+      <li><a id="police" target="_blank">Kantor Polisi Terdekat</a></li>
+    </ul>
+    <h2 class="h2-content">Nomor Darurat:</h2>
+    <ul>
+      <li><a href="tel:110">110 - Panggilan Darurat Kepolisian</a></li>
+      <li><a href="tel:112">112 - Panggilan Darurat</a></li>
+    </ul>
+    <script>
+      // Fungsi untuk mendapatkan lokasi terkini pengguna
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          alert("Geolocation tidak didukung oleh peramban ini.");
+        }
+      }
+
+      // Fungsi untuk menampilkan lokasi pengguna pada peta dan mencari kantor polisi terdekat
+      function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // Menampilkan peta dengan lokasi pengguna
+        var mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d" + longitude + "!3d" + latitude + "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDI0JzE3LjAiTiA3NcKwMzInMTQuOCJF!5e0!3m2!1sen!2sus!4v1624248278557!5m2!1sen!2sus";
+        document.getElementById("map").src = mapUrl;
+
+        // Mendapatkan kantor polisi terdekat
+        var policeUrl = "https://www.google.com/maps/search/kantor+polisi/@"
+          + latitude + "," + longitude + ",15z/data=!3m1!4b1";
+        document.getElementById("police").href = policeUrl;
+      }
+    </script>
+  </div>
+</body>
+</html>
