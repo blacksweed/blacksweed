@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konsultasi Hukum</title>
-    <link rel="stylesheet" href="invormasi.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="kuis.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Selamat datang di Layanan Konsultasi Hukum</h1>
-        <p>Jika Anda membutuhkan konsultasi hukum, silakan klik tombol di bawah ini:</p>
-        <a class="consult-btn" href="https://bphn.go.id" target="_blank">Konsultasi Hukum</a>
-    </div>
-    
-    
-
+    <audio autoplay loop>
+        <source src="Game.mp3" type="audio/mpeg">
+        Maaf, browser Anda tidak mendukung elemen audio.
+    </audio>
+  <div class="container">
+    <h1>Quiz Game</h1>
+    <div id="quiz"></div>
+    <button id="submitButton">Submit</button>
+    <div id="result"></div>
+  </div>
+  <script src="kuis.js"></script>
 </body>
 </html>
